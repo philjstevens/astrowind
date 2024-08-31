@@ -2,11 +2,13 @@
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About Us',
 };
 ---
 
@@ -14,7 +16,7 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="About us"
+    tagline="About Us"
     image={{
       src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: 'Mountain Adventure',
@@ -22,16 +24,36 @@ const metadata = {
   >
     <Fragment slot="title">
       Discover the Thrill of <br />
-      <span class="text-accent dark:text-white highlight"> Mountain Adventure</span>
+      <span class="text-accent dark:text-white highlight">Mountain Adventures</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       At Polar Alpine & Ski Ltd., we are dedicated to providing unforgettable mountain experiences. Our team of experienced guides ensures your safety and enjoyment on every adventure.
-
     </Fragment>
   </Hero>
 
-  <!-- Features3 Widget ************** -->
+  <!-- Company Overview ************** -->
+
+  <Content
+    title="Company Overview"
+    description="Polar Alpine & Ski Ltd. is a premier mountain guiding company based in Troms, Norway. We specialize in ski touring, sail & ski adventures, avalanche courses, and alpine guiding. Our mission is to provide safe, sustainable, and unforgettable mountain experiences for adventurers of all levels."
+    image={{
+      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Mountain Adventure',
+    }}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Our Achievements"
+    stats={[
+      { title: 'Happy Clients', amount: '1.2K' },
+      { title: 'Tours Completed', amount: '850' },
+      { title: 'Years in Business', amount: '10' },
+      { title: 'Certified Guides', amount: '15' },
+    ]}
+  />
 
   <!-- Features3 Widget ************** -->
 
@@ -90,5 +112,3 @@ const metadata = {
     ]}
   />
 </Layout>
-
- 
