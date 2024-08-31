@@ -10,6 +10,7 @@ const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
+  description = await Astro.slots.render('description'),
   content = await Astro.slots.render('content'),
   callToAction,
   items = [],
@@ -44,6 +45,7 @@ const {
   <div class="mx-auto max-w-7xl p-4 md:px-8">
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
       <div class="md:basis-1/2 self-center">
+        {description && <div class="mb-12 text-lg dark:text-slate-400" set:html={description} />}
         {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
 
         {
@@ -92,3 +94,4 @@ const {
     </div>
   </div>
 </WidgetWrapper>
+
