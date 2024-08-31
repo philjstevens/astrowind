@@ -1,0 +1,175 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Ski Touring',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Ski Touring"
+    title="Experience the Best Ski Touring Around Troms"
+    subtitle="Join us for unforgettable ski touring adventures in the stunning landscapes of Troms. Our expert guides ensure a safe and exhilarating experience."
+    actions={[{ variant: 'primary', target: '_blank', text: 'Book Now', href: '/booking' }]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Ski Touring Hero Image',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Why Choose Our Ski Touring Trips?"
+    subtitle="Discover the unique features of our ski touring adventures."
+    columns={3}
+    items={[
+      {
+        title: 'Expert Guides',
+        description:
+          'Our IFMGA certified guides have extensive experience and knowledge of the best ski touring routes in Troms.',
+        icon: 'tabler:mountain',
+      },
+      {
+        title: 'Stunning Scenery',
+        description:
+          'Enjoy breathtaking views and pristine snow as you explore the beautiful landscapes of Troms.',
+        icon: 'tabler:photo',
+      },
+      {
+        title: 'Safety First',
+        description:
+          'We prioritize your safety with thorough planning, high-quality equipment, and expert guidance.',
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="What to Expect"
+    description="Our ski touring trips are designed to provide an exhilarating and safe experience. From the moment you join us, you'll be guided through some of the most stunning terrains, with opportunities to learn and improve your skills."
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Ski Touring Content Image',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'High-Quality Equipment',
+        description:
+          'We provide top-tier ski touring equipment to ensure your safety and comfort during the trip.',
+        icon: 'tabler:wand',
+      },
+      {
+        title: 'Personalized Experience',
+        description:
+          'Our guides tailor each trip to your skill level and preferences, ensuring a unique and enjoyable experience.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Scenic Routes',
+        description:
+          'Explore some of the most scenic and less-traveled routes in Troms, away from the crowds.',
+        icon: 'tabler:presentation',
+      },
+      {
+        title: 'Skill Development',
+        description:
+          'Improve your ski touring skills with guidance and tips from our experienced guides.',
+        icon: 'tabler:carousel-horizontal',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Ski Touring Features Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Time Savings',
+        description:
+          'Streamline your planning and enjoy more time on the slopes with our well-organized trips.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Professional Guidance',
+        description:
+          'Benefit from the expertise of our professional guides, ensuring a safe and enriching experience.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Cost-Efficiency',
+        description:
+          'Enjoy competitive pricing for high-quality ski touring experiences.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Instant Booking',
+        description:
+          'Book your trip easily and quickly through our online booking system.',
+        icon: 'tabler:file-download',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Ski Touring Benefits Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials Widget ************ -->
+
+  <Testimonials
+    title="What Our Clients Say"
+    subtitle="Hear from our satisfied clients who have experienced our ski touring trips."
+    testimonials={[
+      {
+        name: 'Alice Johnson',
+        role: 'Adventure Enthusiast',
+        quote: 'The ski touring trip with Polar Alpine & Ski was an unforgettable experience. The guides were professional and the scenery was breathtaking.',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      },
+      {
+        name: 'Mark Thompson',
+        role: 'Ski Enthusiast',
+        quote: 'I highly recommend Polar Alpine & Ski for anyone looking to explore the best ski touring routes in Troms. The guides are top-notch and the experience is second to none.',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget ************* -->
+
+  <CallToAction
+    title="Ready to Join Us?"
+    description="Book your ski touring adventure with Polar Alpine & Ski today. Click the button below to check availability and make a reservation."
+    actions={[{ variant: 'primary', target: '_blank', text: 'Book Now', href: '/booking' }]}
+  />
+</Layout>

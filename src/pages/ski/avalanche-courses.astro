@@ -1,0 +1,175 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Avalanche Courses',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Avalanche Courses"
+    title="Master the Skills to Stay Safe in Avalanche Terrain"
+    subtitle="Join our comprehensive avalanche courses designed to equip you with the knowledge and skills to navigate avalanche-prone areas safely. Our expert instructors ensure a thorough and engaging learning experience."
+    actions={[{ variant: 'primary', target: '_blank', text: 'Book Now', href: '/booking' }]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Avalanche Courses Hero Image',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Why Choose Our Avalanche Courses?"
+    subtitle="Discover the unique features of our avalanche education programs."
+    columns={3}
+    items={[
+      {
+        title: 'Expert Instructors',
+        description:
+          'Learn from IFMGA certified guides and avalanche professionals with extensive experience.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Comprehensive Curriculum',
+        description:
+          'Our courses cover everything from avalanche basics to advanced rescue techniques.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Hands-On Training',
+        description:
+          'Gain practical experience with field sessions that reinforce classroom learning.',
+        icon: 'tabler:tools',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="Course Offerings"
+    description="We offer a range of avalanche courses to suit different skill levels and needs. Whether you're a beginner or an experienced backcountry traveler, we have a course for you."
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Avalanche Courses Content Image',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Avalanche Rescue Module',
+        description:
+          'Learn essential rescue techniques and how to use avalanche safety equipment effectively.',
+        icon: 'tabler:lifebuoy',
+      },
+      {
+        title: 'Level 1: Avalanche Fundamentals',
+        description:
+          'Understand the basics of avalanche formation, terrain analysis, and decision-making in avalanche terrain.',
+        icon: 'tabler:snowflake',
+      },
+      {
+        title: 'Level 2: Avalanche Processes and Mindset',
+        description:
+          'Dive deeper into snow science, advanced terrain management, and group dynamics.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Level 2 Refresher',
+        description:
+          'Refresh your knowledge and skills with a focus on recent developments and best practices.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'Avalanche Courses Features Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Course Details</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Time Savings',
+        description:
+          'Streamline your learning with our well-structured courses, allowing you to gain essential skills efficiently.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Professional Guidance',
+        description:
+          'Benefit from the expertise of our professional instructors, ensuring a comprehensive learning experience.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Cost-Efficiency',
+        description:
+          'Enjoy competitive pricing for high-quality avalanche education.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Instant Booking',
+        description:
+          'Book your course easily and quickly through our online booking system.',
+        icon: 'tabler:file-download',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Avalanche Courses Benefits Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials Widget ************ -->
+
+  <Testimonials
+    title="What Our Clients Say"
+    subtitle="Hear from our satisfied clients who have completed our avalanche courses."
+    testimonials={[
+      {
+        name: 'Alice Johnson',
+        role: 'Backcountry Skier',
+        quote: 'The avalanche course with Polar Alpine & Ski was incredibly informative and practical. I feel much more confident in my ability to stay safe in avalanche terrain.',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      },
+      {
+        name: 'Mark Thompson',
+        role: 'Mountaineer',
+        quote: 'I highly recommend Polar Alpine & Ski for anyone looking to improve their avalanche safety skills. The instructors are top-notch and the course content is comprehensive.',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget ************* -->
+
+  <CallToAction
+    title="Ready to Join Us?"
+    description="Book your avalanche course with Polar Alpine & Ski today. Click the button below to check availability and make a reservation."
+    actions={[{ variant: 'primary', target: '_blank', text: 'Book Now', href: '/booking' }]}
+  />
+</Layout>
