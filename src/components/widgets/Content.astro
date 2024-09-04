@@ -6,10 +6,29 @@ import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
 import ItemGrid from '../ui/ItemGrid.astro';
 
+interface ContentProps {
+  title: string;
+  subtitle?: string;
+  tagline?: string;
+  description?: string;
+  content?: string;
+  callToAction?: any;
+  items?: any[];
+  columns?: number;
+  image?: any;
+  isReversed?: boolean;
+  isAfterContent?: boolean;
+  id?: string;
+  isDark?: boolean;
+  classes?: any;
+  bg?: any;
+}
+
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
+  description = await Astro.slots.render('description'),
   content = await Astro.slots.render('content'),
   callToAction,
   items = [],
@@ -22,7 +41,7 @@ const {
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
-} = Astro.props;
+} = Astro.props as ContentProps;
 ---
 
 <WidgetWrapper
@@ -44,6 +63,7 @@ const {
   <div class="mx-auto max-w-7xl p-4 md:px-8">
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
       <div class="md:basis-1/2 self-center">
+        {description && <div class="mb-12 text-lg dark:text-slate-400" set:html={description} />}
         {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
 
         {
