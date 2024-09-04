@@ -1,113 +1,266 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Content from '~/components/widgets/Content.astro';
+
 import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import { getPermalink } from '~/utils/permalinks';
+import Slider from '~/components/widgets/MySwiper.astro';
 
 const metadata = {
-  title: 'About Us',
+  title: 'About Philip Stevens - Polar Alpine & Ski Ltd.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  
 
-  <Hero
-    tagline="About Us"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Mountain Adventure',
-    }}
-  >
-    <Fragment slot="title">
-      Discover the Thrill of <br />
-      <span class="text-accent dark:text-white highlight">Mountain Adventures</span>
-    </Fragment>
+    <div class="relative">
+        <!-- Hero Section with Swiper Background ******************* -->
+        <div class="relative h-screen">
+          <div class="absolute inset-0 z-0">
+            <Slider />
+          </div>
+          <div class="relative z-10 h-full flex items-center justify-center">
+            <Hero
+              id="hero"
+              tagline="Polar Alpine & Ski Ltd"
+              actions={[{ variant: 'primary', text: 'Explore Our Services', href: getPermalink('/services') }]}
+            >
+              <Fragment slot="title">
+                <span class="text-accent dark:text-white highlight"> Professional</span> Mountain Guiding <br />
+              </Fragment>  
+              <Fragment slot="subtitle">
+                At Polar Alpine & Ski, we are dedicated to sharing the beauty and thrill of the mountains with you. Our mission is to strike the perfect balance between safety and excitement, professionalism and enjoyment, and goal-oriented adventures with a personal touch. Founded by Phil Stevens, an IFMGA mountain guide, we specialise in creating bespoke, high-calibre mountain experiences tailored to your unique needs and desires.
+              </Fragment>
+            </Hero>
+          </div>
+        </div>
+      </div>
 
-    <Fragment slot="subtitle">
-      At Polar Alpine & Ski Ltd., we are dedicated to providing unforgettable mountain experiences. Our team of experienced guides ensures your safety and enjoyment on every adventure.
-    </Fragment>
-  </Hero>
-
-  <!-- Company Overview ************** -->
+  <!-- Content Widget **************** -->
 
   <Content
-    title="Company Overview"
-    description="Polar Alpine & Ski Ltd. is a premier mountain guiding company based in Troms, Norway. We specialize in ski touring, sail & ski adventures, avalanche courses, and alpine guiding. Our mission is to provide safe, sustainable, and unforgettable mountain experiences for adventurers of all levels."
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:brand-dribbble',
+        callToAction: {
+          target: '_blank',
+          text: 'Our Story',
+          href: '#',
+        },
+      },
+      {
+        icon: 'tabler:brand-behance',
+        callToAction: {
+          target: '_blank',
+          text: 'Our Team',
+          href: '#',
+        },
+      },
+      {
+        icon: 'tabler:brand-pinterest',
+        callToAction: {
+          target: '_blank',
+          text: 'Our Values',
+          href: '#',
+        },
+      },
+    ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Mountain Adventure',
+      src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Alpine Skiing',
+      loading: 'eager',
     }}
-  />
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About Philip Stevens</h2>
+      <p>
+        Philip Stevens, born in March 1984, is a seasoned mountain guide and the driving force behind Polar Alpine & Ski Ltd. With a background in mountaineering and climbing instruction, Philip has dedicated his life to exploring and guiding in some of the world's most breathtaking mountain regions, including the European Alps, Arctic Norway, and Antarctica.
+      </p>
+      <br />
+      <p>
+        Philip's journey began in the West Highlands of Scotland, where he honed his skills and developed a deep love for the mountains. His expertise spans rock climbing, scrambling, winter mountaineering, ski touring, and ice climbing. Philip's commitment to safety, professionalism, and personalized experiences sets him apart in the field.
+      </p>
+      <br />
+      <p>If you're curious to learn more about Philip and his adventures, you can follow him:</p>
+    </Fragment>
 
-  <!-- Stats Widget ****************** -->
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
-  <Stats
-    title="Our Achievements"
-    stats={[
-      { title: 'Happy Clients', amount: '1.2K' },
-      { title: 'Tours Completed', amount: '850' },
-      { title: 'Years in Business', amount: '10' },
-      { title: 'Certified Guides', amount: '15' },
+  <CallToAction
+    id="cta"
+    title="Ready to start your next adventure?"
+    actions={[
+      { variant: 'primary', text: 'Contact Us', href: getPermalink('/contact#form') },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
+  <!-- Features3 Widget **************** -->
 
   <Features3
+    id="services"
     title="Our Services"
-    subtitle="Explore the range of services we offer to make your mountain adventure unforgettable."
+    subtitle="Explore the range of services we offer to enhance your alpine and skiing experiences."
     columns={3}
-    isBeforeContent={true}
+    defaultIcon="tabler:point-filled"
     items={[
       {
-        title: 'Ski Touring',
-        description:
-          'Experience the best ski touring around Troms with our expert guides.',
-        icon: 'tabler:snowflake',
+        title: 'Ski Equipment Rental',
+        description: 'High-quality ski equipment available for rent.',
       },
       {
-        title: 'Sail & Ski',
-        description:
-          'Combine sailing and skiing for a unique adventure around Troms.',
-        icon: 'tabler:sailboat',
+        title: 'Guided Tours',
+        description: 'Expert-led tours to explore the best alpine trails.',
       },
       {
-        title: 'Avalanche Courses',
-        description:
-          'Learn essential avalanche safety skills with our certified courses.',
-        icon: 'tabler:mountain',
+        title: 'Ski Lessons',
+        description: 'Professional ski lessons for all skill levels.',
+      },
+      {
+        title: 'Customer Service',
+        description: 'Ensuring excellent customer service and support.',
+      },
+      {
+        title: 'Safety Training',
+        description: 'Conducting safety training sessions for a secure skiing experience.',
+      },
+      {
+        title: 'Event Planning',
+        description: 'Organizing skiing events and competitions.',
+      },
+      {
+        title: 'Marketing',
+        description: 'Promoting our services and products effectively.',
+      },
+      {
+        title: 'Adaptability',
+        description: 'Quick to adapt to new trends and client preferences.',
       },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Content Widget **************** -->
 
-  <Features2
-    title="Our Team"
-    subtitle="Meet the experienced guides who will lead your adventures."
-    columns={3}
+  <Content
+    id="portfolio"
+    title="Elevating Alpine Experiences"
+    subtitle="Explore the personalized and professional services offered by Polar Alpine & Ski Ltd."
+    isReversed
     items={[
       {
-        title: 'John Doe',
+        title: 'Professional Guiding and Instruction',
         description:
-          'IFMGA Certified Mountain Guide with over 20 years of experience in alpine guiding.',
-        icon: 'tabler:user',
+          'At Polar Alpine & Ski Ltd., we pride ourselves on offering professional guiding and instruction. Our guides are highly trained and experienced, ensuring that you receive the best possible guidance and support during your alpine adventures.',
       },
       {
-        title: 'Jane Smith',
+        title: 'Personalized Experiences',
         description:
-          'Expert ski instructor and avalanche safety specialist.',
-        icon: 'tabler:user',
+          'We believe that every client is unique, and we strive to provide personalized experiences tailored to your individual needs and preferences. Whether you are a beginner or an experienced skier, we will work with you to create a memorable and enjoyable experience.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
+      alt: 'Alpine Skiing',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Learn More',
+      icon: 'tabler:chevron-right',
+      href: '#',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Our Values: <br /><span class="text-2xl">Professionalism and Personalization</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    title="Client Testimonials"
+    subtitle="Discover what clients have to say about their experiences with Philip Stevens and Polar Alpine & Ski Ltd."
+    testimonials={[
+      {
+        testimonial: `Philip took our vague concept and turned it into a visual masterpiece that perfectly aligned with our goals. His attention to detail and ability to translate ideas into compelling visuals exceeded our expectations.`,
+        name: 'Mark Thompson',
+        job: 'Creative Director',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Mark Thompson Image',
+        },
       },
       {
-        title: 'Emily Johnson',
-        description:
-          'Professional climber and outdoor educator with a passion for teaching.',
-        icon: 'tabler:user',
+        testimonial: `Philip transformed our brand identity with his creative finesse, capturing our essence in every element. His dedication and talent truly shine through his work.`,
+        name: 'Emily Martinez',
+        job: 'CEO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYW',
+          alt: 'Emily Martinez Image',
+        },
+      },
+      {
+        testimonial: `Philip has an uncanny ability to communicate emotions and stories. He crafted a logo for our NGO that not only represents our cause but also evokes empathy. His professionalism and commitment make him a designer of exceptional caliber.`,
+        name: 'Laura Simmons',
+        job: 'Founder of an NGO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Laura Simmons Image',
+        },
+      },
+      {
+        testimonial: `We entrusted Philip with revamping our website's user interface, and the results were astounding. His intuitive design sense enhanced user experience, leading to a significant increase in engagement. He's a designer who truly understands the synergy of aesthetics and functionality.`,
+        name: 'Alex Foster',
+        job: 'Director of Web Services',
+        image: {
+          src: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Alex Foster Image',
+        },
+      },
+      {
+        testimonial: `Philip took our vision and elevated it beyond imagination. His ability to capture brand essence and translate it into design is nothing short of remarkable. Working with him has been an inspiring journey.`,
+        name: 'Jessica Collins',
+        job: 'Product Manager',
+        image: {
+          src: 'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80',
+          alt: 'Jessica Collins Image',
+        },
+      },
+      {
+        testimonial: `Philip's ability to transform concepts into captivating visuals is nothing short of extraordinary. He took our event poster idea and turned it into a visual masterpiece that perfectly captured the essence of our festival. His dedication, creativity, and knack for delivering beyond expectations make him an invaluable asset to any project.`,
+        name: 'Michael Carter',
+        job: 'Event Coordinator',
+        image: {
+          src: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Michael Carter Image',
+        },
       },
     ]}
   />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Explore my insightful articles on my blog"
+    information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
 </Layout>

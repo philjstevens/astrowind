@@ -17,55 +17,15 @@ const { metadata } = Astro.props;
 
 <Layout metadata={metadata}>
   <slot name="announcement">
-    <Announcement message="Join us for an unforgettable mountain adventure! Book your trip today." />
+    <Announcement />
   </slot>
   <slot name="header">
-    <Header 
-      {...headerData} 
-      isSticky 
-      showRssFeed={false} 
-      showToggleTheme 
-      links={[
-        { text: 'Home', href: '/' },
-        { text: 'About', href: '/about' },
-        { 
-          text: 'Climb', 
-          links: [
-			{ text: 'Alpine Climbing', href: '/climb/alpine-climbing' },
-            { text: 'Winter Climbing', href: '/climb/winter-climbing' },
-            { text: 'North Norway Alpine', href: '/climb/north-norway-alpine' },
-          ]
-        },
-        { 
-          text: 'Ski', 
-          links: [
-            { text: 'Ski Touring', href: '/ski/ski-touring' },
-            { text: 'Sail & Ski', href: '/ski/sail-ski' },
-            { text: 'Avalanche Courses', href: '/ski/avalanche-courses' },
-            { text: 'Polar Night', href: '/ski/polar-night' },
-          ]
-        },
-        { text: 'Booking', href: '/booking' },
-        { text: 'Contact', href: '/contact' },
-      ]}
-    />
+    <Header {...headerData} isSticky showToggleTheme />
   </slot>
   <main>
     <slot />
   </main>
   <slot name="footer">
-    <Footer 
-      {...footerData} 
-      links={[
-        { text: 'Privacy Policy', href: '/privacy-policy' },
-        { text: 'Terms of Service', href: '/terms-of-service' },
-        { text: 'Contact', href: '/contact' },
-      ]}
-      socialLinks={[
-        { icon: 'tabler:brand-facebook', href: 'https://facebook.com' },
-        { icon: 'tabler:brand-instagram', href: 'https://instagram.com' },
-        { icon: 'tabler:brand-twitter', href: 'https://twitter.com' },
-      ]}
-    />
+    <Footer {...footerData} />
   </slot>
 </Layout>
